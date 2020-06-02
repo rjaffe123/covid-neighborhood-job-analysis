@@ -5,12 +5,12 @@ library(testit)
 # Set Params -------------------------------------------------
 
 # Set static=TRUE if its your first time running the scripts, FALSE otherwise.
-# This runs the scripts located in the sctips/static folder
+# This runs the scripts located in the scripts/static folder
 static <- FALSE
 
 # set dryrun = FALSE if you want to upload files to S3. Most users can safely
 # set dryrun = TRUE
-dryrun <- FALSE
+dryrun <- TRUE
 
 # Are we using the BLS data for job loss calculation? Set to TRUE after
 # 2020-05-08. If FALSE, use WA/NY weighted data for job loss calculations
@@ -42,19 +42,19 @@ if (static) {
     }
 }
 
-source("scripts\\update\\1-download-data-update.R", encoding = "UTF-8")
-source("scripts\\update\\1b-generate-bls-state-claims-csv-update.R", encoding = "UTF-8")
-source("scripts\\update\\2a-job-loss-by-industry-wa-update.R", encoding = "UTF-8")
-source("scripts\\update\\2b-job-loss-by-industry-bls-update.R", encoding = "UTF-8")
-source("scripts\\update\\2c-job-loss-by-industry-ny-update.R", encoding = "UTF-8")
-source("scripts\\update\\2y-job-loss-by-industry-combine-states-update.R", encoding = "UTF-8")
-source("scripts\\update\\2z-job-loss-by-industry-by-state-update.R", encoding = "UTF-8")
-source("scripts\\update\\3-produce-data-files-update.R", encoding = "UTF-8")
-source("scripts\\update\\4-produce-summary-stats-update.R", encoding = "UTF-8")
+source("scripts/update/1-download-data-update.R", encoding = "UTF-8") # I ran this 
+source("scripts/update/1b-generate-bls-state-claims-csv-update.R", encoding = "UTF-8")
+source("scripts/update/2a-job-loss-by-industry-wa-update.R", encoding = "UTF-8")
+source("scripts/update/2b-job-loss-by-industry-bls-update.R", encoding = "UTF-8") #this one
+source("scripts/update/2c-job-loss-by-industry-ny-update.R", encoding = "UTF-8")
+source("scripts/update/2y-job-loss-by-industry-combine-states-update.R", encoding = "UTF-8")
+source("scripts/update/2z-job-loss-by-industry-by-state-update.R", encoding = "UTF-8")
+source("scripts/update/3-produce-data-files-update.R", encoding = "UTF-8") #and this one got the output file
+source("scripts/update/4-produce-summary-stats-update.R", encoding = "UTF-8")
 
 # stop because you need to review the histograms and confirm legend bounds
 stop()
-source("scripts\\update\\5-create-sum-files-update.R", encoding = "UTF-8")
+source("scripts/update/5-create-sum-files-update.R", encoding = "UTF-8")
 if (!dryrun) {
-    source("scripts\\update\\6-transfer-to-s3-update.R", encoding = "UTF-8")
+    source("scripts/update/6-transfer-to-s3-update.R", encoding = "UTF-8")
 }

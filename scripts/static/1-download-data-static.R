@@ -46,9 +46,11 @@ download.file(
   destfile = "data/raw-data/big/rac_all.csv"
 )
 
-# All jobs, RAC, >=$40,000 per year
+##### NEED TO CHANGE THIS ######
+# All jobs, RAC, >=$40,000 per year - RAC all jobs, excluding federal jobs, earning $3333/month or more
+##changed to all jobs, RAC <= 40,000
 download.file(
-  url = "https://urban-data-catalog.s3.amazonaws.com/drupal-root-live/2020/03/30/rac_se03_tract.csv",
+  url = "https://urban-data-catalog.s3.amazonaws.com/drupal-root-live/2020/03/30/rac_se01_tract.csv",
   destfile = "data/raw-data/big/rac_se03.csv"
 )
 

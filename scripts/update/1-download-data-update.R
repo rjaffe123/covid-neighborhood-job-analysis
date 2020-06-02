@@ -68,6 +68,8 @@ update_all_us_qcew_data <- function(url =
             to = "data/raw-data/big/us_qcew.xlsx"
       )
 }
+### idk why this link doesn't work in R, but I just downloaded it by hand and 
+## then added the excel file to the appropriate place. Then to run the master file I commented this out
 update_wa_unemp_data <- function(week_num) {
       # week_num: The week number to get unemployment data. This needs to be
       # manually increased by 1 every week. As of 06/07/20, latest week_num = 17
